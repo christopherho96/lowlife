@@ -4,7 +4,7 @@
             <div class = "col s12 m6 left">
                 <div class ="primary-overlay valign-wrapper">
                     <div class= "col s12 main-text center">
-                        <h1 class ="brand-text">LOWLIFEe</h1>
+                        <h1 class ="brand-text">LOWLIFE</h1>
                         <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link>
                     </div>
                 </div>
