@@ -30,7 +30,7 @@
                     <textarea class = "materialize-textarea" placeholder="Enter Message" id ="message"></textarea>
                     <label for="message">Message</label>
                 </div>
-                <input type ="submit" value="Submit" class = "btn blue-grey darken-4">
+                <input v-on:click="sendEmail()" type ="submit" value="Submit" class = "btn blue-grey darken-4">
                 </div>    
               </div>
           </div>
@@ -76,3 +76,40 @@ h5{
        color: #000;
    }
 </style>
+
+<script>
+
+export default {
+
+  data () {
+    return {
+        }
+    },
+    methods: {
+    sendEmail(){
+    var helper = require('sendgrid').mail;
+var fromEmail = new helper.Email('test@example.com');
+var toEmail = new helper.Email('lowlifetoronto@gmail.com');
+var subject = 'Sending with SendGrid is Fun';
+var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js');
+var mail = new helper.Mail(fromEmail, subject, toEmail, content);
+ 
+var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
+var request = sg.emptyRequest({
+  method: 'POST',
+  path: '/v3/mail/send',
+  body: mail.toJSON()
+});
+ 
+sg.API(request, function (error, response) {
+  if (error) {
+    console.log('Error response received');
+  }
+  console.log(response.statusCode);
+  console.log(response.body);
+  console.log(response.headers);
+});
+    }
+  }
+}
+</script>

@@ -16,6 +16,7 @@
     "moment": "^2.20.1",
     "node-sass": "^4.7.2",
     "sass-loader": "^6.0.6",
+    "sendgrid": "^5.2.3",
     "style-loader": "^0.20.2",
     "vue": "^2.5.2",
     "vue-icons": "^2.0.0",
