@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>lowlife</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="static/materialize.min.css" media="screen,projection" />
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,200,300,400,500,600,700,800,900" rel="stylesheet" type = 'text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900" rel="stylesheet" type = 'text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Mono:100,200,300,400,500,600,700,800,900" rel="stylesheet" type = 'text/css'>
+    <script defer src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+    <!--Import jQuery before materialize.js-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" src="static/materialize.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        //init modal
+        $('.modal').modal({
+        dismissible: true,
+        inDuration: 300,
+        outDuration: 200,
+        ready: function (modal, trigger) {
+          console.log('Modal Opened', modal, trigger);
+        }
+      });
+
+        // Init side nav
+        $('.button-collapse').sideNav();
+                    // Init slider
+        $('.slider').slider({
+          indicators: false,
+          height: 500,
+          transition: 500,
+          interval: 10000
+        })
+      });
+
+      //init scrollfire
+      const options = [
+        {
+          selector: '.main-text',
+          offset: 0,
+          callback: function(el) {
+            Materialize.fadeInImage($(el));
+          }
+        },
+        {
+          selector: '.navbar-fixed',
+          offset: 1000,
+          callback: function(){
+            $('nav').removeClass('transparent').addClass('blue-grey darken-3');
+          }
+        }
+      ];
+
+      Materialize.scrollFire(options);
+
+    </script>
+</html>
