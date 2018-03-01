@@ -15,19 +15,19 @@
                 <div class="card-panel grey lighten-3">
                 <h5 style="margin-bottom: 40px;">Leave us a message</h5>
                 <div class = "input-field">
-                    <input type ="text" placeholder = "Name" id ="name">
+                    <input v-model= "name" type ="text" placeholder = "Name" id ="name">
                     <label for="name">Name</label>
                 </div>
                 <div class = "input-field">
-                    <input type ="text" placeholder = "Email" id ="email">
+                    <input v-model= "from" type ="text" placeholder = "Email" id ="email">
                     <label for="email">Email</label>
                     </div>
                 <div class = "input-field">
-                    <input type ="text" placeholder = "Phone" id ="phone">
-                    <label for="phone">Phone</label>
+                    <input v-model= "subject" type ="text" placeholder = "Subject" id ="subject">
+                    <label for="subject">Subject</label>
                 </div>
                 <div class = "input-field">
-                    <textarea class = "materialize-textarea" placeholder="Enter Message" id ="message"></textarea>
+                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Enter Message" id ="message"></textarea>
                     <label for="message">Message</label>
                 </div>
                 <input v-on:click="sendEmail()" type ="submit" value="Submit" class = "btn blue-grey darken-4">
@@ -83,33 +83,25 @@ export default {
 
   data () {
     return {
-        }
+            to: 'lowlifetoronto@gmail.com',
+            from: '',
+            name: '',
+            subject: '',
+            text: '',
+    }
     },
     methods: {
     sendEmail(){
-        var helper = require('sendgrid').mail;
-        var fromEmail = new helper.Email('test@example.com');
-        var toEmail = new helper.Email('lowlifetoronto@gmail.com');
-        var subject = 'Sending with SendGrid is Fun';
-        var content = new helper.Content('text/plain', 'and easy to do anywhere, even with Node.js');
-        var mail = new helper.Mail(fromEmail, subject, toEmail, content);
-        
-        var sg = require('sendgrid')(process.env.SENDGRID_API_KEY);
-        var request = sg.emptyRequest({
-        method: 'POST',
-        path: '/v3/mail/send',
-        body: mail.toJSON()
-        });
-        
-        sg.API(request, function (error, response) {
-        if (error) {
-            console.log('Error response received');
+        const sgMail = require('@sendgrid/mail');
+            sgMail.setApiKey('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');
+            const msg = {
+            to: 'lowlifetoronto@gmail.com',
+            from: 'test@example.com',
+            subject: 'Sending with SendGrid is Fun',
+            text: 'and easy to do anywhere, even with Node.js',
+            };
+            sgMail.send(msg);
         }
-        console.log(response.statusCode);
-        console.log(response.body);
-        console.log(response.headers);
-        });
-    }
   }
 }
 </script>
