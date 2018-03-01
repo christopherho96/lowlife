@@ -35,7 +35,7 @@ export default {
       firebase.auth().signOut().then(
         user => {
           store.dispatch('setLogInState', false)
-            alert(`You are logged out}`);
+            alert(`You are logged out`);
             this.$router.push('/Login');
           },
           err => {

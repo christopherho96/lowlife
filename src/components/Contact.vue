@@ -30,7 +30,7 @@
                     <textarea v-model= "text" class = "materialize-textarea" placeholder="Enter Message" id ="message"></textarea>
                     <label for="message">Message</label>
                 </div>
-                <input v-on:click="sendEmail()" type ="submit" value="Submit" class = "btn blue-grey darken-4">
+                <button v-on:click="sendEmail()" class = "btn blue-grey darken-4"></button>
                 </div>    
               </div>
           </div>
