@@ -92,6 +92,7 @@ export default {
     },
     methods: {
     sendEmail(){
+        console.log("sending emaill")
         const sgMail = require('@sendgrid/mail');
             sgMail.setApiKey('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');
             const msg = {
