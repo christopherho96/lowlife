@@ -16,7 +16,7 @@
                                 <router-link to= "/EventsPage">Events</router-link>
                             </li>
                             <li>
-                                <router-link to= "/ListOfBlogPosts">Blog</router-link>
+                                <router-link to= "/Gallery">Gallery</router-link>
                             </li>
                             <li>
                                 <router-link to= "/Media">Media</router-link>

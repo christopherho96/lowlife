@@ -1,20 +1,14 @@
 <template>
   <div class = "container">
       <h1 class = "brand-text">LOWLIFE</h1>
-      <!-- <input type= "text" v-model="search" placeholder = "Search blogs"/> -->
-
       <div class = "row center">
-        <router-link v-bind:to= "'/admin/ViewBlogs'" class="btn-large">Blogs</router-link>
         <router-link v-bind:to= "'/admin/ViewEvents'" class="btn-large">Events</router-link>
-        <button v-on:click="signOut()"class="btn-large">Sign Out</button>
+        <router-link v-bind:to= "'/admin/ViewGallery'" class="btn-large">Gallery</router-link>
       </div>
-
-
   </div>
 </template>
 
 <script>
-import {blogPostsRef} from '../../firebase'
 import firebase from 'firebase';
 import store from '../../store';
 export default {
@@ -22,29 +16,6 @@ export default {
     return {
     }
   },
-
-  created(){
-    console.log(store.getters.checkLogInState)
-  },
-
-  firebase:{
-    blogPosts: blogPostsRef
-  },
-  methods:{
-    signOut(){
-      firebase.auth().signOut().then(
-        user => {
-          store.dispatch('setLogInState', false)
-            alert(`You are logged out`);
-            this.$router.push('/Login');
-          },
-          err => {
-            alert(err.message);
-          }
-      )
-        
-    }
-  }
 }
 </script>
 
@@ -71,7 +42,6 @@ li{
     text-align: center;
   }
 
-
 .single-blog{
     padding: 20px;
     margin: 20px 0;
@@ -82,6 +52,5 @@ li{
 article{
   white-space: pre-wrap;
 }
-
 
 </style>

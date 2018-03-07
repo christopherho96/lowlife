@@ -16,10 +16,10 @@
                                 <router-link to= "/admin/ViewEvents">Events</router-link>
                             </li>
                             <li>
-                                <router-link to= "/admin/ViewBlogs">Blog</router-link>
+                                <router-link to= "/admin/ViewGallery">Gallery</router-link>
                             </li>
                             <li>
-                                <button v-on:click="signOut()"class="btn-large">Sign Out</button>
+                                <button v-on:click="signOut()"class="btn yellow darken-3 black-text">Sign Out</button>
                             </li>
 
                         </ul>
@@ -62,9 +62,6 @@ export default {
     }
   },
 
-  created(){
-    console.log(store.getters.checkLogInState)
-  },
 
   methods:{
     signOut(){

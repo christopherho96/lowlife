@@ -10,11 +10,15 @@ import VueMaterial from 'vue-material'
 import 'vue-material/dist/vue-material.css'
 import SocialSharing from 'vue-social-sharing'
 import VueYouTubeEmbed from 'vue-youtube-embed'
+import VueImg from 'v-img';
 
 Vue.config.productionTip = false
 Vue.use(SocialSharing);
 Vue.use(VueFire);
 Vue.use(VueYouTubeEmbed);
+Vue.use(VueMaterial)
+Vue.use(VueImg);
+
 
 /* eslint-disable no-new */
 new Vue({

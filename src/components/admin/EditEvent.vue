@@ -1,27 +1,28 @@
 <template>
-  <div id="add-blog">
-    <h2>Add a New Event Post</h2>
+  <div class = "container">
+    <h2>Edit Event Post</h2>
     <form v-if = "!event.submitted">
         <label>Blog Title:</label>
         <input type ="text"  v-model.lazy= "event.title" required/>
         <label>Date</label>
         <input type ="text"  v-model.lazy= "event.date" required/>
-        <label for="">Event Content</label>
-        <textarea v-model.lazy="event.content"></textarea>
+        <label>Images</label>
+        <div class="row" v-for="i in Math.ceil(event.images.length / 3)" :key="i">
+            <div class = "col s12 m4" v-for="(image,index) in event.images.slice((i - 1) * 3, i * 3)" :key="index">
+                <div class="card blue-grey darken-4">
+                <div class="card-image">
+                    <img v-img:group :src="image.image">
+                    <button v-on:click="remove(index)" class = "btn">X</button> 
+                </div>
+                </div>
+            </div>
+        </div>
         <label for="">Image URL</label>
-        <input type ="text"  v-model.lazy= "event.imageURL" required/>
+        <input type ="text"  v-model= "imageURL" required/>
+        <button v-on:click="addItem" class = "btn" style = "margin-bottom:50px">Save Image URL</button>
     </form>
 
-    <div v-if = "event.submitted">
-        <p>You have submitted your post</p>
-    </div>
-    <div id = "preview">
-        <h3>Preview Blog</h3>
-        <p>Event Title: {{event.title}}</p>
-        <p>Event Content:</p>
-        <p style= "white-space: pre-wrap;">{{event.content}}</p>
-        <button v-on:click.prevent= "post" class = "btn btn-primary">Publish</button>
-    </div>            
+    <button v-on:click.prevent= "post" class = "btn btn-primary" style="margin-bottom:50px">Publish</button>          
   </div>
 </template>
 
@@ -53,27 +54,27 @@ export default {
     methods: {
         post: function(){
             eventsRef.child(this.id).set({
-                content: this.event.content,
-                author: this.event.author,
                 date: this.event.date,
-                imageURL: this.event.imageURL,
+                images: this.event.images,
                 title: this.event.title
             })
             alert(`Your event post has been updated.`);
             this.$router.push('/admin/ViewEvents');
+        },
+        addItem(){
+            this.event.images.push({image: this.imageURL})
+            this.imageURL = ''
+        },
+        remove(index){
+            this.event.images.splice(index, 1)
         }
     }
 }
 </script>
 
 <style>
-#add-blog *{
-    box-sizing: border-box;
-}
-#add-blog{
-    margin: 20px auto;
-    max-width: 500px;
-}
+
+
 label{
     display: block;
     margin: 20px 0 10px;

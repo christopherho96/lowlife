@@ -16,24 +16,21 @@
                 </div>
                 <div class="row" v-for="(event,index) in sortedFromMostRecentPosts" :key="index">
                     <div class="col s12 m12">
-                        <router-link v-bind:to= "'/event/' + event['.key']">
-                        <div class="card red darken-2 event-card" v-bind:style="{ backgroundImage: 'url('+ event.imageURL +')' }">
-                            <div class = "primary-overlay">
-                                <div class="card-content white-text" style ="position:absolute; bottom:0;">
-                                    <p class = "event-title">{{event.title}}</p>
-                                    <p><i class="far fa-calendar" aria-hidden="true"></i> {{event.date}}</p>
-                                    <p>{{event.location}}</p>
-                                    <router-link v-bind:to= "'/event/' + event['.key']" class = "btn btn-primary yellow darken-3 black-text">View</router-link>
-                                    <router-link v-bind:to= "'/admin/EditEvent/' + event['.key']" class = "btn btn-primary green black-text">Edit</router-link>
-                                    <button class="btn red waves-effect waves-light modal-trigger" v-on:click="deleteEventPost(event['.key'])">Delete</button>                                  
-                                </div>
+                      <div class="card blue-grey darken-4 event-card" v-bind:style="{ backgroundImage: 'url('+ event.images[0].image + ')' }">
+                        <div class = "primary-overlay">
+                            <div class="card-content white-text" style ="position:absolute; bottom:0;">
+                              <p class = "event-title">{{event.title}}</p>
+                              <p><i class="far fa-calendar" aria-hidden="true"></i> {{event.date}}</p>
+                              <p>{{event.location}}</p>
+                              <router-link v-bind:to= "'/admin/EditEvent/' + event['.key']" class = "btn btn-primary green black-text">Edit</router-link>
+                              <button class="btn red waves-effect waves-light modal-trigger" v-on:click="deleteEventPost(event['.key'])">Delete</button>                                     
                             </div>
-                            </div>
-                        </router-link>
+                        </div>
+                      </div>
                     </div>
                 </div>
             </div>
-        </div>     
+        </div>
     </div>
 </template>
 
@@ -99,13 +96,10 @@ h3{
 </style>
 
 <script>
-import header from '../Header.vue';
 import {eventsRef} from '../../firebase';
 import firebase from 'firebase';
 export default {
-  components: {
-    'app-header': header
-  },
+
   data () {
     return {
     }
@@ -115,15 +109,12 @@ export default {
     events: eventsRef
   },
 
-    computed: {
+  computed: {
     sortedFromMostRecentPosts: function() {
         return this.events.slice().reverse() 
     }
   },
   methods:{
-    submitName(){
-      blogPostsRef.push({name: this.name, edit: false})
-    },
     deleteEventPost(){
         eventsRef.child(key).remove();
     }

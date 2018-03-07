@@ -13,7 +13,7 @@ const app = initializeApp({
 
 export default app;
 export const db = app.database();
-export const blogPostsRef = db.ref('blogPosts');
+export const galleryRef = db.ref('gallery');
 export const eventsRef = db.ref('events');
 export const storage = app.storage();
 

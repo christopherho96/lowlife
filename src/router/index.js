@@ -3,10 +3,9 @@ import Router from 'vue-router'
 import store from '../store'
 import firebase from '../firebase'
 
-import SingleBlog from '@/components/SingleBlog'
 import SingleEvent from '@/components/SingleEvent'
 import LandingPage from '@/components/LandingPage'
-import ListOfBlogPosts from '@/components/ListOfBlogPosts'
+import Gallery from '@/components/Gallery'
 import EventsPage from '@/components/EventsPage'
 import About from '@/components/About'
 import Footer from '@/components/Footer'
@@ -18,21 +17,17 @@ import HomePage from '@/components/admin/HomePage'
 import AdminHeader from '@/components/admin/AdminHeader'
 import Login from '@/components/admin/Login'
 import NewBlog from '@/components/admin/NewBlog'
-import ViewBlogs from '@/components/admin/ViewBlogs'
+import ViewGallery from '@/components/admin/ViewGallery'
 import ViewEvents from '@/components/admin/ViewEvents'
 import NewEvent from '@/components/admin/NewEvent'
-import EditBlog from '@/components/admin/EditBlog'
+import AddPhotos from '@/components/admin/AddPhotos'
 import EditEvent from '@/components/admin/EditEvent'
 
 Vue.use(Router)
 
 const router = new Router({
   routes: [
-    {
-      path: '/blog/:id',
-      component: SingleBlog,
-      meta: { auth: false },
-    },
+
     {
       path: '/event/:id',
       component: SingleEvent,
@@ -45,8 +40,8 @@ const router = new Router({
       meta: { auth: false },
     },
     {
-      path: '/ListOfBlogPosts',
-      component: ListOfBlogPosts,
+      path: '/Gallery',
+      component: Gallery,
       meta: { auth: false },
     },
     {
@@ -96,8 +91,8 @@ const router = new Router({
       meta: { auth: true },
     },
     {
-      path: '/admin/ViewBlogs',
-      component: ViewBlogs,
+      path: '/admin/ViewGallery',
+      component: ViewGallery,
       meta: { auth: true },
     },
     {
@@ -111,8 +106,8 @@ const router = new Router({
       meta: { auth: true },
     },
     {
-      path: '/admin/EditBlog/:id',
-      component: EditBlog,
+      path: '/admin/AddPhotos',
+      component: AddPhotos,
       meta: { auth: true },
     },
     {
@@ -142,6 +137,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
 
 export default router

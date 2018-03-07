@@ -1,35 +1,25 @@
 <template>
     <div class = "container">
+   
         <div class="row">
-            <div class="col m9 l10 s12 content">
+            <div class="col s12 content">
                 <h1 class = "event-title">{{event.title}}</h1>
                 <div class = "row">
                     <div class = "col s12">
-                        <p class = "left-align">{{event.date}} </p>
+                        <p class = "left-align"><i class="far fa-calendar" aria-hidden="true"></i> {{event.date}} </p>
                     </div>
                 </div>
-                <img :src="event.imageURL" width="100%" style="padding-bottom:25px;">
-                <article style="white-space: pre-wrap;">{{event.content}}</article>
-                <social-sharing :url="this.$route.fullPath" inline-template>
-                    <div class = "row buttons">
-                        <network network="facebook" class="btn btn-primary blue darken-4">
-                        <i class="fab fa-facebook"></i> Facebook
-                        </network>
-                        <network network="twitter" class="btn btn-primary blue">
-                        <i class="fab fa-twitter"></i> Twitter
-                        </network>
-                    </div>  
-                </social-sharing>
-            </div>
-            <div class="col hide-on-small-only m3 l2 s12">
-                <ul class="pinned section table-of-contents">
-                <h5>MORE EVENTS</h5>
-                <li v-for="(event,index) in events" :key="index">
-                    <div v-if="event['.key'] != id" class = "row">
-                        <a v-on:click = "loadNewEventPost(event['.key'])">{{event.title}}</a>
+                
+                <div class="row" v-for="i in Math.ceil(event.images.length / 3)" :key="i">
+                    <div class = "col s12 m4" v-for="(image,index) in event.images.slice((i - 1) * 3, i * 3)" :key="index">
+                        <div class="card blue-grey darken-4">
+                        <div class="card-image">
+                            <img v-img:group :src="image.image"> 
+                        </div>
+                        </div>
                     </div>
-                </li>
-                </ul>
+                </div>
+
             </div>
         </div>
     </div>
@@ -48,9 +38,9 @@
 </style>
 
 <script>
-import {eventsRef} from '../firebase'
+import {eventsRef} from '../firebase';
+
 export default{
-    props: ['index'],
     data(){
         return{
             id: this.$route.params.id,
@@ -70,7 +60,12 @@ export default{
             }
         });
         this.event = thisEvent;
+        this.event.images.forEach(function(image){
+            console.log(image.image)
+        })
         
+    },
+    computed: {
     },
     methods: {
         loadNewEventPost(key){
@@ -85,6 +80,9 @@ export default{
             });
             this.event = thisEvent;
         },
+        yo(image){
+            console.log("this image is: " + image)
+        }
     }
 }
 </script>

@@ -1,51 +1,46 @@
 <template>
     <div class="container">
-        <h2>Add a New Blog Post</h2>
-        <form v-if = "!blog.submitted">
-            <label>Blog Title</label>
-            <input type ="text"  v-model.lazy= "blog.title" required/>
-            <label>Author</label>
-            <input type ="text"  v-model.lazy= "blog.author" required/>
-            <label for="">Blog Content</label>
-            <textarea v-model.lazy="blog.content"></textarea>
-            <label for="">Image URL</label>
-            <input type ="text"  v-model.lazy= "blog.imageURL" required/>
+        <h2>Add New Photos</h2>
+        <form>
+        <label>Images</label>
+        <div class="row" v-for="i in Math.ceil(images.length / 3)" :key="i">
+            <div class = "col s12 m4" v-for="(image,index) in images.slice((i - 1) * 3, i * 3)" :key="index">
+                <div class="card blue-grey darken-4">
+                <div class="card-image">
+                    <img v-img:group :src="image.image">
+                    <button v-on:click="remove(index)" class = "btn">X</button>  
+                </div>
+                </div>
+            </div>
+        </div>
+        <label for="">Image URL</label>
+        <input type ="text"  v-model= "imageURL" required/>
+        <button v-on:click="addImage" class = "btn" style = "margin-bottom: 50px">Save Image URL</button>
         </form>
 
-        <div v-if = "blog.submitted">
-            <p>You have submitted your post</p>
-        </div>
-        <div id = "preview">
-            <h3>Preview Blog</h3>
-            <p>Blog Title: {{blog.title}}</p>
-            <p>Blog Content:</p>
-            <p style= "white-space: pre-wrap;">{{blog.content}}</p>
-        </div>
         <button v-on:click.prevent= "post" class = "btn btn-primary">Publish</button>
     </div>
 </template>
 
 <script>
-import {blogPostsRef} from '../../firebase'
+import {galleryRef} from '../../firebase'
 import moment from 'moment';
 export default {
 
   data () {
     return {
-        blog: {
-            title: "",
-            date: moment().format("MMM Do YY"),
-            content: "",
-            author: "",
-            imageURL: ""
-        },
+        images: [],
     }
   },
   methods: {
     post: function(){
-        blogPostsRef.push(this.blog)
-        alert(`Your new blog post has been published`);
+        galleryRef.push({images: this.images})
+        alert(`Your photos have been published`);
         this.$router.go(-1);
+    },
+    addImage(){
+      this.images.push({image: this.imageURL})
+      this.imageURL = ''
     }
   }
 }

@@ -4,7 +4,6 @@ import Vuex from 'vuex';
 Vue.use(Vuex);
 
 export default new Vuex.Store({
-
     state: {
         isLoggedIn: false
     },
@@ -21,11 +20,9 @@ export default new Vuex.Store({
         }
 
     },
-
     actions: {
         setLogInState(context, auth){
             context.commit('setLogInState', auth)
         }
     }
-
 })

@@ -14,7 +14,7 @@
                     <div class="row" v-for="(event,index) in sortedFromMostRecentPosts" :key="index">
                         <div class="col s12 m12">
                           <router-link v-bind:to= "'/event/' + event['.key']">
-                            <div class="card blue-grey darken-4 event-card" v-bind:style="{ backgroundImage: 'url('+ event.imageURL +')' }">
+                            <div class="card blue-grey darken-4 event-card" v-bind:style="{ backgroundImage: 'url('+ event.images[0].image + ')' }">
                               <div class = "primary-overlay">
                                   <div class="card-content white-text" style ="position:absolute; bottom:0;">
                                     <p class = "event-title">{{event.title}}</p>
