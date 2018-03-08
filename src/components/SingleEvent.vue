@@ -1,6 +1,5 @@
 <template>
     <div class = "container">
-   
         <div class="row">
             <div class="col s12 content">
                 <h1 class = "event-title">{{event.title}}</h1>
@@ -80,9 +79,6 @@ export default{
             });
             this.event = thisEvent;
         },
-        yo(image){
-            console.log("this image is: " + image)
-        }
     }
 }
 </script>

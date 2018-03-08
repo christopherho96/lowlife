@@ -6,9 +6,10 @@ import firebase from '../firebase'
 import SingleEvent from '@/components/SingleEvent'
 import LandingPage from '@/components/LandingPage'
 import Gallery from '@/components/Gallery'
-import EventsPage from '@/components/EventsPage'
+import Experiences from '@/components/Experiences'
 import About from '@/components/About'
 import Footer from '@/components/Footer'
+import Merchandise from '@/components/Merchandise'
 import Media from '@/components/Media'
 import Contact from '@/components/Contact'
 
@@ -17,17 +18,24 @@ import HomePage from '@/components/admin/HomePage'
 import AdminHeader from '@/components/admin/AdminHeader'
 import Login from '@/components/admin/Login'
 import NewBlog from '@/components/admin/NewBlog'
-import ViewGallery from '@/components/admin/ViewGallery'
-import ViewEvents from '@/components/admin/ViewEvents'
-import NewEvent from '@/components/admin/NewEvent'
+import AdminGallery from '@/components/admin/AdminGallery'
+import AdminExperiences from '@/components/admin/AdminExperiences'
+import NewExperience from '@/components/admin/NewExperience'
 import AddPhotos from '@/components/admin/AddPhotos'
 import EditEvent from '@/components/admin/EditEvent'
+import EditMerchItem from '@/components/admin/EditMerchItem'
+import AdminMerch from '@/components/admin/AdminMerch'
+import AdminAddMerch from '@/components/admin/AdminAddMerch'
 
 Vue.use(Router)
 
 const router = new Router({
   routes: [
-
+    {
+      path: '/',
+      component: LandingPage,
+      meta: { auth: false },
+    },
     {
       path: '/event/:id',
       component: SingleEvent,
@@ -35,8 +43,8 @@ const router = new Router({
     },
 
     {
-      path: '/',
-      component: LandingPage,
+      path: '/Merchandise',
+      component: Merchandise,
       meta: { auth: false },
     },
     {
@@ -45,8 +53,8 @@ const router = new Router({
       meta: { auth: false },
     },
     {
-      path: '/EventsPage',
-      component: EventsPage,
+      path: '/Experiences',
+      component: Experiences,
       meta: { auth: false },
     },
     {
@@ -91,18 +99,18 @@ const router = new Router({
       meta: { auth: true },
     },
     {
-      path: '/admin/ViewGallery',
-      component: ViewGallery,
+      path: '/admin/AdminGallery',
+      component: AdminGallery,
       meta: { auth: true },
     },
     {
-      path: '/admin/ViewEvents',
-      component: ViewEvents,
+      path: '/admin/AdminExperiences',
+      component: AdminExperiences,
       meta: { auth: true },
     },
     {
-      path: '/admin/NewEvent',
-      component: NewEvent,
+      path: '/admin/NewExperience',
+      component: NewExperience,
       meta: { auth: true },
     },
     {
@@ -113,6 +121,21 @@ const router = new Router({
     {
       path: '/admin/EditEvent/:id',
       component: EditEvent,
+      meta: { auth: true },
+    },
+    {
+      path: '/admin/AdminMerch',
+      component: AdminMerch,
+      meta: { auth: true },
+    },
+    {
+      path: '/admin/AddMerch',
+      component: AdminAddMerch,
+      meta: { auth: true },
+    },
+    {
+      path: '/admin/EditMerchItem/:id',
+      component: EditMerchItem,
       meta: { auth: true },
     },
     

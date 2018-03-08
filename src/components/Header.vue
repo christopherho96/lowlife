@@ -13,13 +13,16 @@
                                 <router-link to= "/">Home</router-link>
                             </li>
                             <li>
-                                <router-link to= "/EventsPage">Events</router-link>
+                                <router-link to= "/Experiences">Experiences</router-link>
                             </li>
                             <li>
                                 <router-link to= "/Gallery">Gallery</router-link>
                             </li>
                             <li>
                                 <router-link to= "/Media">Media</router-link>
+                            </li>
+                            <li>
+                                <router-link to= "/Merchandise">Merchandise</router-link>
                             </li>
                             <li>
                                 <router-link to= "/Contact" class = "btn yellow darken-3 black-text">Contact</router-link>

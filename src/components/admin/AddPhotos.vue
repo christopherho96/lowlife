@@ -58,7 +58,7 @@ export default {
             images: this.images
         })
         alert(`Your blog post has been updated.`);
-        this.$router.push('/admin/ViewGallery');
+        this.$router.push('/admin/AdminGallery');
     },
     addImage(){
       this.images.push({image: this.imageURL})

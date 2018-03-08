@@ -2,8 +2,8 @@
   <div class = "container">
       <h1 class = "brand-text">LOWLIFE</h1>
       <div class = "row center">
-        <router-link v-bind:to= "'/admin/ViewEvents'" class="btn-large">Events</router-link>
-        <router-link v-bind:to= "'/admin/ViewGallery'" class="btn-large">Gallery</router-link>
+        <router-link v-bind:to= "'/admin/AdminExperiences'" class="btn-large">Experiences</router-link>
+        <router-link v-bind:to= "'/admin/AdminGallery'" class="btn-large">Gallery</router-link>
       </div>
   </div>
 </template>

@@ -62,11 +62,16 @@ export default {
         .then(
           user => {
             store.dispatch('setLogInState', true)
-            alert(`You are logged in as ${user.email}`);
-            this.$router.push('/admin/HomePage');
+            this.$swal("Logged In", "Welcome back to Lowlife admin panel." ,"success", {
+                  closeOnClickOutside: false 
+            }).then((value) => {
+                this.$router.push('/admin/HomePage');
+            }) 
           },
           err => {
-            alert(err.message);
+            this.$swal("Error", err.message ,"error", {
+                  closeOnClickOutside: false 
+            })
           }
         );
       e.preventDefault();

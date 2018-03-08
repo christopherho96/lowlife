@@ -13,10 +13,13 @@
                                 <router-link to= "/admin/HomePage">Admin Home</router-link>
                             </li>
                             <li>
-                                <router-link to= "/admin/ViewEvents">Events</router-link>
+                                <router-link to= "/admin/AdminExperiences">Experiences</router-link>
                             </li>
                             <li>
-                                <router-link to= "/admin/ViewGallery">Gallery</router-link>
+                                <router-link to= "/admin/AdminGallery">Gallery</router-link>
+                            </li>
+                            <li>
+                                <router-link to= "/admin/AdminMerch">Merchandise</router-link>
                             </li>
                             <li>
                                 <button v-on:click="signOut()"class="btn yellow darken-3 black-text">Sign Out</button>
@@ -68,7 +71,6 @@ export default {
       firebase.auth().signOut().then(
         user => {
           store.dispatch('setLogInState', false)
-            alert(`You are logged out`);
             this.$router.push('/Login');
           },
           err => {

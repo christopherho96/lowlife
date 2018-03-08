@@ -19,10 +19,10 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
             <div class = "col s12 m4 right">
                 <div class = "block block1">
                     <div class = "col s12 m6">
-                        <router-link v-bind:to= "'/EventsPage'" class ="white-text">
+                        <router-link v-bind:to= "'/Experiences'" class ="white-text">
                             <div class ="primary-overlay valign-wrapper">
                                 <div class= "col s12 center">
-                                    <span class ="lowlifefont">Events</span>
+                                    <span class ="lowlifefont">Experiences</span>
                                 </div>
                             </div>
                         </router-link>
@@ -51,6 +51,17 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
                     </div>
                 </div>
                 <div class = "block block4">
+                    <div class = "col s12 m6">
+                        <router-link v-bind:to= "'/Merchandise'" class ="white-text">
+                            <div class ="primary-overlay valign-wrapper">
+                                <div class= "col s12 center">
+                                    <span class ="lowlifefont">Merchandise</span>
+                                </div>
+                            </div>
+                        </router-link>
+                    </div>
+                </div>
+                <div class = "block block5">
                     <div class = "col s12 m6">
                         <div class ="primary-overlay valign-wrapper">
                             <div class= "col s12 center">
@@ -134,7 +145,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     background: url(../assets/dj.jpg);
     background-size:cover;
     background-position:center;
-    height: 25vh;
+    height: 20vh;
     color: #fff;
     position: relative;
 }
@@ -143,7 +154,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     background: url(../assets/blog.jpg);
     background-size:cover;
     background-position:center;
-    height: 25vh;
+    height: 20vh;
     color: #fff;
     position: relative;
 }
@@ -151,16 +162,25 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
         background: url(../assets/media2.jpg);
     background-size:cover;
     background-position:center;
-    height: 25vh;
+    height: 20vh;
     color: #fff;
     position: relative;
 }
 
 .block4{
-        background: url(../assets/lowlife3.jpg);
+    background: url(../assets/merch.jpg);
     background-size:cover;
     background-position:center;
-    height: 25vh;
+    height: 20vh;
+    color: #fff;
+    position: relative;
+}
+
+.block5{
+    background: url(../assets/lowlife3.jpg);
+    background-size:cover;
+    background-position:center;
+    height: 20vh;
     color: #fff;
     position: relative;
 }
