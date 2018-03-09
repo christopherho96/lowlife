@@ -5,7 +5,7 @@
                 <div class = "container">
                     <div class="nav-wrapper">
                         <a href="" class="brand-logo">LOWLIFE</a>
-                        <a href="" data-activates="mobile-nav" class="button-collapse">                                
+                        <a @click="showNavigation = true" data-activates="mobile-nav" class="button-collapse">                                
                             <i class ="material-icons">menu</i>
                         </a>
                         <ul class="right hide-on-med-and-down">
@@ -26,32 +26,59 @@
                             </li>
 
                         </ul>
-                        <!--Side Nav -->
-                        <ul class="side-nav" id ="mobile-nav">
-                            <h4 class ="blue-grey darken-3 center">LOWLIFE</h4>
-                            <li>
-                                <a class ="divider"></a>
-                            </li>
-                            <li>
-                                <router-link to= "/">Home</router-link>
-                            </li>
-                            <li>
-                                <router-link to= "/EventsPage">Events</router-link>
-                            </li>
-                            <li>
-                                <router-link to= "/ListOfBlogPosts">Blog</router-link>
-                            </li>
-                            <li>
-                                <router-link to= "/Media">Media</router-link>
-                            </li>
-                            <li>
-                                <router-link to= "/Gallery">Contact</router-link>
-                            </li>         
-                        </ul>
                     </div>
                 </div>
             </nav>
         </div>
+        <md-drawer :md-active.sync="showNavigation">
+            <md-list>
+                <!--SPACER-->
+
+                <md-list-item>
+                <span class="md-list-item-text"></span>
+                </md-list-item>
+                <!--SPACER-->
+
+                <md-list-item>
+                <md-icon>home</md-icon>
+                <span class="md-list-item-text">
+                    <router-link to= "/admin/HomePage">Admin Home</router-link>
+                </span>
+                </md-list-item>
+
+                <md-list-item>
+                <md-icon>event</md-icon>
+                <span class="md-list-item-text"><router-link to= "/admin/AdminExperiences">Experiences</router-link>
+                </span>
+                </md-list-item>
+
+                <md-list-item>
+                <md-icon>photo</md-icon>
+                <span class="md-list-item-text"><router-link to= "/admin/AdminGallery">Gallery</router-link>
+                </span>
+                </md-list-item>
+
+                <!-- <md-list-item>
+                <md-icon>movie</md-icon>
+                <span class="md-list-item-text"><router-link to= "/Media">Media</router-link>
+                </span>
+                </md-list-item> -->
+
+                <md-list-item>
+                <md-icon>shop</md-icon>
+                <span class="md-list-item-text"><router-link to= "/Media"><router-link to= "/admin/AdminMerch">Merchandise</router-link>
+                </router-link>
+                </span>
+                </md-list-item>
+
+                <md-list-item>
+                <button v-on:click="signOut()"class="btn yellow darken-3 black-text">Sign Out</button>
+                </router-link>
+                </span>
+                </md-list-item>
+
+            </md-list>
+        </md-drawer>
     </div>
 </template>
 
@@ -60,10 +87,10 @@
 import firebase from 'firebase';
 import store from '../../store';
 export default {
-  data () {
-    return {
-    }
-  },
+    name: 'Temporary',
+    data: () => ({
+      showNavigation: false,
+    }),
 
 
   methods:{
@@ -87,5 +114,9 @@ export default {
 li{
     font-family: 'Lato', sans-serif;
     font-weight: 300;  
+}
+
+.md-drawer {
+    background-color:white;
 }
 </style>

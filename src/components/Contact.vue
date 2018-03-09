@@ -12,26 +12,29 @@
                   <p>If you have an idea that you believe we can help you make succesful, plesae do not hesitate to contact us. Lowlife is continously finding new ways to branch out.</p>
               </div>
               <div class ="col s12 m6">
-                <div class="card-panel grey lighten-3">
+                <form action="https://formspree.io/lowlifetoronto@gmail.com" method="POST">
+                <div class="card-panel grey lighten-2">
                 <h5 style="margin-bottom: 40px;">Leave us a message</h5>
                 <div class = "input-field">
-                    <input v-model= "name" type ="text" placeholder = "Name" id ="name">
+                    <input v-model= "name" type ="text" placeholder = "Name" id ="name" name ="name">
                     <label for="name">Name</label>
                 </div>
                 <div class = "input-field">
-                    <input v-model= "from" type ="text" placeholder = "Email" id ="email">
+                    <input v-model= "from" type ="text" placeholder = "Email" id ="email" name="_replyto">
                     <label for="email">Email</label>
                     </div>
                 <div class = "input-field">
-                    <input v-model= "subject" type ="text" placeholder = "Subject" id ="subject">
+                    <input v-model= "subject" type ="text" placeholder = "Subject" id ="subject" name="_subject">
                     <label for="subject">Subject</label>
                 </div>
                 <div class = "input-field">
-                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Message" id ="message"></textarea>
+                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Message" id ="message" name="message"></textarea>
                     <label for="message">Message</label>
                 </div>
-                <button v-on:click="sendEmail()" class = "btn blue-grey darken-4">Submit</button>
-                </div>    
+                <input class = "btn blue-grey darken-4" type="submit" value="Send">
+
+                </div>  
+                </form>  
               </div>
           </div>
       </div>
@@ -89,30 +92,8 @@ export default {
             subject: '',
             text: '',
     }
-    },
-    methods: {
-    sendEmail(){
-        console.log("sending emaill")
-var helper = require('sendgrid').mail;
-var from_email = new helper.Email('test@example.com');
-var to_email = new helper.Email('lowlifetoronto@gmail.com');
-var subject = 'Hello World from the SendGrid Node.js Library!';
-var content = new helper.Content('text/plain', 'Hello, Email!');
-var mail = new helper.Mail(from_email, subject, to_email, content);
-
-var sg = require('sendgrid')('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');
-var request = sg.emptyRequest({
-  method: 'POST',
-  path: '/v3/mail/send',
-  body: mail.toJSON(),
-});
-
-sg.API(request, function(error, response) {
-  console.log(response.statusCode);
-  console.log(response.body);
-  console.log(response.headers);
-});
+  },
+  methods: {
   }
-}
 }
 </script>

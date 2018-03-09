@@ -34,13 +34,8 @@
             </nav>
         </div>
         <md-drawer :md-active.sync="showNavigation">
-
-
             <md-list>
                 <!--SPACER-->
-                <md-list-item>
-                <span class="md-list-item-text"></span>
-                </md-list-item>
                 <md-list-item>
                 <span class="md-list-item-text"></span>
                 </md-list-item>
@@ -78,6 +73,12 @@
                 </span>
                 </md-list-item>
 
+                <md-list-item>
+                <md-icon>mail</md-icon>
+                <span class="md-list-item-text"><router-link to= "/Media"><router-link to= "/Contact">Contact</router-link>
+                </router-link>
+                </span>
+                </md-list-item>
             </md-list>
         </md-drawer>
                  
