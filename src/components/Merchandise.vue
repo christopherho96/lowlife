@@ -9,7 +9,7 @@
           </div>
         </div>
       </div>
-      <div class = "blogs-list grey lighten-4">"
+      <div class = "blogs-list grey lighten-4">
         <div class = "container">
           <h5 class = "center">Visual Catalog Only</h5>
           <p class = "center">Click here to visit official Lowlife store</p>
@@ -26,7 +26,6 @@
                 </div>
             </div>
           </div>
-
         </div>
       </div>
   </div>

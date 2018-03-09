@@ -9,7 +9,7 @@
           </div>
         </div>
       </div>
-      <div class = "blogs-list grey lighten-4">"
+      <div class = "blogs-list grey lighten-4">
         <div class = "container">
             <div class = "row center">
                 <router-link v-bind:to= "'/admin/AddMerch'" class="btn-large">Add Items</router-link>

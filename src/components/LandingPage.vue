@@ -14,8 +14,9 @@
                                 <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
                             </div>
                             <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'image'">
-                                <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            </div>
-                            </div>   
+                                <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            
+                            </div>
+                        </div>   
                         <!-- <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link> -->
                     </div>
                 </div>
