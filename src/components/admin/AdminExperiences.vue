@@ -23,7 +23,6 @@
                               <p><i class="far fa-calendar" aria-hidden="true"></i> {{event.date}}</p>
                               <p>{{event.location}}</p>
                               <router-link v-bind:to= "'/admin/EditEvent/' + event['.key']" class = "btn btn-primary green black-text">Edit</router-link>
-                              <button class="btn red waves-effect waves-light modal-trigger" v-on:click="deleteEventPost(event['.key'])">Delete</button>                                     
                             </div>
                         </div>
                       </div>
@@ -115,9 +114,6 @@ export default {
     }
   },
   methods:{
-    deleteEventPost(){
-        eventsRef.child(key).remove();
-    }
   }
 }
 </script>

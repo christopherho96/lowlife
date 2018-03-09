@@ -27,7 +27,7 @@
                     <label for="subject">Subject</label>
                 </div>
                 <div class = "input-field">
-                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Enter Message" id ="message"></textarea>
+                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Message" id ="message"></textarea>
                     <label for="message">Message</label>
                 </div>
                 <button v-on:click="sendEmail()" class = "btn blue-grey darken-4">Submit</button>

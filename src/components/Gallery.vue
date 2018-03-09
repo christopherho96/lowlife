@@ -11,16 +11,15 @@
       </div>
       <div class = "blogs-list grey lighten-4">"
         <div class = "container">
-          <div class="row" v-for="i in Math.ceil(gallery[0].images.length / 3)" :key="i">
+          <div class="row" v-for="i in Math.ceil(gallery.length / 3)" :key="i">
             <div class = "col s12 m4" v-for="(image,index) in sortedFromMostRecentPosts.slice((i - 1) * 3, i * 3)" :key="index">
                 <div class="card blue-grey darken-4">
                   <div class="card-image">
-                    <img v-img:group :src="image.image"> 
+                    <img v-img:group :src="image.url"> 
                   </div>
                 </div>
             </div>
           </div>
-
         </div>
       </div>
   </div>
@@ -82,7 +81,7 @@ export default {
 
   computed: {
       sortedFromMostRecentPosts: function() {
-        return this.gallery[0].images.slice().reverse() 
+        return this.gallery.slice().reverse() 
       }
   },
 

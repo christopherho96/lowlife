@@ -6,13 +6,17 @@
                     <div class= "col s12 main-text center">
                         <h1 class ="brand-text">LOWLIFE</h1>
                         <div class = "notice-board">
-                            <h5 class = "black-text">UPDATES</h5>
-                            <article style="white-space: pre-wrap;" class = "black-text">What is Lorem Ipsum?
-
-Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-</article>
-                         </div>   
-                        <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link>
+                            <h5 class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
+                            <p class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
+                            <article style="white-space: pre-wrap;" class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].message}}
+                            </article>
+                            <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'video'"  class = "video-container">
+                                <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                            </div>
+                            <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'image'">
+                                <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            </div>
+                            </div>   
+                        <!-- <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link> -->
                     </div>
                 </div>
             </div>
@@ -92,10 +96,21 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 </template>
 
 <style scoped>
+.video-container {
+    position: relative;
+}
+.video-container iframe,
+.video-container object {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
 
 .notice-board{
-    margin-left: 100px;
-    margin-right: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
     margin-bottom: 50px;
     padding: 30px 50px;
     border-radius: 5px;
@@ -104,7 +119,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 .block .lowlifefont{
     font-family: 'Roboto Mono', sans-serif;
     font-weight:300;
-    font-size: 45px;
+    font-size: 30px;
 }
 
 
@@ -159,7 +174,7 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
     position: relative;
 }
 .block3{
-        background: url(../assets/media2.jpg);
+    background: url(../assets/media2.jpg);
     background-size:cover;
     background-position:center;
     height: 20vh;
@@ -217,12 +232,17 @@ Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem
 </style>
 
 <script>
-import header from './Header.vue';
-import firebase from 'firebase'
+import {homePageNotifsRef} from '../firebase';
+import firebase from 'firebase';
 
 export default {
-    components: {
-        'app-header': header
+    data () {
+        return {
+
+        }
+    },
+    firebase: {
+        homePageNotifs : homePageNotifsRef
     },
 }
 </script>

@@ -12,7 +12,9 @@
                 <div class="card blue-grey darken-4">
                 <div class="card-image">
                     <img v-img:group :src="image.image">
-                    <button v-on:click="remove(index)" class = "btn">X</button> 
+                    <button v-on:click="deleteImage((i-1) * 3 + index)" class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">delete</i>
+                    </button>
                 </div>
                 </div>
             </div>
@@ -22,7 +24,8 @@
         <button v-on:click="addItem" class = "btn" style = "margin-bottom:50px">Save Image URL</button>
     </form>
 
-    <button v-on:click.prevent= "post" class = "btn btn-primary" style="margin-bottom:50px">Publish</button>          
+    <button v-on:click.prevent= "post" class = "btn btn-primary" style="margin-bottom:50px">Update</button>          
+    <button class="btn red waves-effect waves-light modal-trigger" v-on:click="deleteEvent()" style="margin-bottom:50px">Delete</button>
   </div>
 </template>
 
@@ -53,20 +56,65 @@ export default {
     },
     methods: {
         post: function(){
-            eventsRef.child(this.id).set({
-                date: this.event.date,
-                images: this.event.images,
-                title: this.event.title
-            })
-            alert(`Your event post has been updated.`);
-            this.$router.push('/admin/ViewEvents');
+
+            if (this.event.title == "" || this.event.images == "" || this.event.date == ""){
+                this.$swal("Missing Fields", "Please fill out all details", {
+                    closeOnClickOutside: false 
+                })
+            } else {
+                eventsRef.child(this.id).set({
+                    date: this.event.date,
+                    images: this.event.images,
+                    title: this.event.title
+                })
+                this.$swal("Updated", "Your experience has been updated." , "success", {
+                    closeOnClickOutside: false 
+                }).then((value) => {
+                    if (value == true){
+                        this.$router.push('/admin/AdminExperiences');
+                    }
+                });
+            }
         },
         addItem(){
             this.event.images.push({image: this.imageURL})
             this.imageURL = ''
         },
-        remove(index){
-            this.event.images.splice(index, 1)
+        deleteImage(index){
+            swal({
+                title: "Are you sure?",
+                text: "This will remove the image from this experience.",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                closeOnClickOutside: false,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your image was successfully removed.", {
+                    icon: "success",
+                    });
+                    this.event.images.splice(index, 1);
+                }});
+        },
+        deleteEvent(){
+            swal({
+                title: "Are you sure?",
+                text: "This will remove this experience from the Experiences page",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+                closeOnClickOutside: false,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    swal("Your experience has been deleted.", {
+                    icon: "success",
+                    });
+                    eventsRef.child(this.id).remove();
+                    this.$router.push('/admin/AdminExperiences');
+                } 
+                });
         }
     }
 }

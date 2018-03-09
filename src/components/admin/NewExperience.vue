@@ -12,7 +12,9 @@
                 <div class="card blue-grey darken-4">
                 <div class="card-image">
                     <img v-img:group :src="image.image">
-                    <button v-on:click="remove(index)" class = "btn">X</button>  
+                    <button v-on:click="deleteImage((i-1) * 3 + index)" class="btn-floating halfway-fab waves-effect waves-light red">
+                        <i class="material-icons">delete</i>
+                    </button>
                 </div>
                 </div>
             </div>
@@ -44,16 +46,41 @@ export default {
   },
   methods: {
     post: function(){
-        eventsRef.push(this.event)
-        alert(`Your new experience has been published`);
-        this.$router.push('/admin/AdminExperiences');
+        if (this.event.title == "" || this.event.images.length < 1 || this.event.date == ""){
+            this.$swal("Missing Fields", "Please fill out all fields", {
+                closeOnClickOutside: false 
+            })
+        }else{
+            eventsRef.push(this.event)
+            this.$swal("Success", "Your experience have been publised." , "success", {
+                closeOnClickOutside: false 
+            }).then((value) => {
+                if (value == true){
+                    this.$router.push('/admin/AdminExperiences');
+                }
+            });
+        }
     },
     addItem(){
       this.event.images.push({image: this.imageURL})
       this.imageURL = ''
     },
-    remove(index){
-        this.event.images.splice(index, 1)
+    deleteImage(index){
+        swal({
+            title: "Are you sure?",
+            text: "This will remove the image from this experience.",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+            closeOnClickOutside: false,
+            })
+            .then((willDelete) => {
+            if (willDelete) {
+                swal("Your image was successfully removed.", {
+                icon: "success",
+                });
+                this.event.images.splice(index, 1);
+            }});
     }
   }
 }

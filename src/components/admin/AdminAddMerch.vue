@@ -20,7 +20,7 @@
                         <p class = "blog-title center white-text">{{item.name}}</p>
                         <p class = "center white-text">{{item.price}}</p>
                     </div>
-                    <button v-on:click="remove(images.length - index - (i-1) * 3)" class = "btn">X</button>
+                    <button v-on:click="remove(index)" class = "btn">X</button>
                 </div>
             </div>
         </div>
@@ -37,7 +37,6 @@ export default {
   data () {
     return {
         id: this.$route.params.id,
-        galleryID : '',
         item: {
             name: '',
             price: '$',
@@ -59,22 +58,42 @@ export default {
 
     methods: {
     post: function(){
-        this.items.forEach(function(item) {
-            merchRef.push(item)
-        });
-        alert(`Your items has been published`);
-        this.$router.push('/admin/AdminMerch');
+        if (this.items.length < 1){
+            this.$swal("No Items", "Please fill out all fields and save item.", {
+                closeOnClickOutside: false 
+            })
+        }else{
+            this.items.forEach(function(item) {
+                merchRef.push(item)
+            });
+            this.$swal("Success", "Your items have been publised." , "success", {
+                closeOnClickOutside: false 
+            }).then((value) => {
+                if (value == true){
+                    this.$router.push('/admin/AdminMerch');
+                }
+            });
+        }
+
     },
     saveItem(){
-        let newItem = {
-            name: this.item.name,
-            price: this.item.price,
-            image: this.item.image
+        if (this.item.name == "" || this.item.price == "" || this.item.image == ""){
+            this.$swal("Missing Fields", "Please fill out all details", {
+                closeOnClickOutside: false 
+            })
+        } else {
+            let newItem = {
+                name: this.item.name,
+                price: this.item.price,
+                image: this.item.image
+            }
+            this.items.push(newItem)
         }
-      this.items.push(newItem)
-      console.log(this.items)
+
     },
     remove(index){
+        console.log(index)
+        this.items.splice(index, 1)
     }
   }
 }

@@ -12,15 +12,18 @@
       <div class = "blogs-list grey lighten-4">"
         <div class = "container">
             <div class = "row center">
-                <router-link v-bind:to= "'/admin/AddPhotos'" class="btn-large">Add Photos</router-link>
+                <router-link v-bind:to= "'/admin/AddPhotos'" class="btn-large">Add images</router-link>
             </div>
 
-          <div class="row" v-for="i in Math.ceil(gallery[0].images.length / 3)" :key="i">
+          <div class="row" v-for="i in Math.ceil(gallery.length / 3)" :key="i">
             <div class = "col s12 m4" v-for="(image,index) in sortedFromMostRecentPosts.slice((i - 1) * 3, i * 3)" :key="index">
                 <div class="card blue-grey darken-4">
                   <div class="card-image">
-                    <img v-img:group :src="image.image"> 
+                    <img v-img:group :src="image.url"> 
                   </div>
+                  <button v-on:click="deleteItem(image['.key'])" class="btn-floating halfway-fab waves-effect waves-light red">
+                    <i class="material-icons">delete</i>
+                  </button>
                 </div>
             </div>
           </div>
@@ -81,13 +84,11 @@ h3{
 </style>
 
 <script>
-import header from '../Header.vue';
+
 import {galleryRef} from '../../firebase';
 import firebase from 'firebase';
 export default {
-  components: {
-    'app-header': header,
-  },
+
   data () {
     return {
     }
@@ -97,19 +98,31 @@ export default {
     gallery: galleryRef
   },
 
-  mounted() {
-    console.log(this.gallery[0].images)
-  },
-
   computed: {
       sortedFromMostRecentPosts: function() {
-        return this.gallery[0].images.slice().reverse() 
+        return this.gallery.slice().reverse() 
       }
   },
+  
   methods:{
-    deleteBlogPost(key){
-        blogPostsRef.child(key).remove();
+    deleteItem(key){
+      swal({
+          title: "Are you sure?",
+          text: "This will remove the image from the gallery page",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          closeOnClickOutside: false,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              swal("Your image was successfully removed.", {
+              icon: "success",
+              });
+              galleryRef.child(key).remove();
+          }});
     }
-  }
+  },
+
 }
 </script>

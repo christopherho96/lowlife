@@ -21,8 +21,6 @@ Vue.use(VueMaterial)
 Vue.use(VueImg);
 Vue.use(VueSwal)
 
-
-
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

@@ -43,7 +43,6 @@ export default {
     },
     methods: {
         post: function(){
-
             if (this.item.name == "" || this.item.price == "" || this.item.image == ""){
                 this.$swal("Missing Fields", "Please fill out all details", {
                     closeOnClickOutside: false 
