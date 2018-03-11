@@ -15,7 +15,7 @@
           <p class = "center">Click here to visit official Lowlife store</p>
           <div class="row" v-for="i in Math.ceil(merch.length / 3)" :key="i">
             <div class = "col s12 m4" v-for="(item,index) in sortedFromMostRecentPosts.slice((i - 1) * 3, i * 3)" :key="index">
-                <div class="card blue-grey darken-4">
+                <div class="card">
                     <div class="card-image">
                         <img v-img:group :src="item.image"> 
                     </div>
@@ -68,6 +68,10 @@ h3{
   width: 100%;
   height: 100%;
   overflow: hidden;
+}
+
+.card{
+  background-color:#10002E !important;
 }
 
 @media(max-width: 700px){

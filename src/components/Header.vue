@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class = "navbar-fixed">
-            <nav class = "blue-grey darken-4">
+            <nav>
                 <div class = "container">
                     <div class="nav-wrapper">
                         <a href="" class="brand-logo"><img src="../assets/lowlife-02-white.png"/></a>
@@ -105,6 +105,10 @@ li{
 
 .md-drawer {
     background-color:white;
+}
+
+nav{
+    background-color:#10002E !important;
 }
 
 </style>

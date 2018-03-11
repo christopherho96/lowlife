@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class = "navbar-fixed">
-            <nav class = "blue-grey darken-4">
+            <nav>
                 <div class = "container">
                     <div class="nav-wrapper">
                         <a href="" class="brand-logo">LOWLIFE</a>
@@ -17,6 +17,9 @@
                             </li>
                             <li>
                                 <router-link to= "/admin/AdminGallery">Gallery</router-link>
+                            </li>
+                            <li>
+                                <router-link to= "/admin/AdminMedia">Media</router-link>
                             </li>
                             <li>
                                 <router-link to= "/admin/AdminMerch">Merchandise</router-link>
@@ -58,11 +61,11 @@
                 </span>
                 </md-list-item>
 
-                <!-- <md-list-item>
+                <md-list-item>
                 <md-icon>movie</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Media">Media</router-link>
+                <span class="md-list-item-text"><router-link to= "/admin/AdminMedia">Media</router-link>
                 </span>
-                </md-list-item> -->
+                </md-list-item>
 
                 <md-list-item>
                 <md-icon>shop</md-icon>
@@ -118,5 +121,9 @@ li{
 
 .md-drawer {
     background-color:white;
+}
+
+nav{
+    background-color:#10002E !important;
 }
 </style>

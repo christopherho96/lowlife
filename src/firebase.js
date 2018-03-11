@@ -17,5 +17,6 @@ export const galleryRef = db.ref('gallery');
 export const eventsRef = db.ref('events');
 export const merchRef = db.ref('merchandise');
 export const homePageNotifsRef = db.ref('homePageNotifs');
+export const mediaRef = db.ref('media');
 export const storage = app.storage();
 

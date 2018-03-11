@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
-          <div class="card-panel login blue-grey darken-4 white-text center">
+          <div class="card-panel login white-text center">
             <img class = "brand-logo" src="../../assets/lowlife-02-white.png"/>
             <form action="index.html">
               <div class="input-field">
@@ -40,6 +40,10 @@
 
   .section-login{
     height:90vh;
+  }
+
+  .login{
+    background-color:#10002E !important;
   }
 </style>
 

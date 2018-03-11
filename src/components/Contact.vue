@@ -13,25 +13,21 @@
               </div>
               <div class ="col s12 m6">
                 <form action="https://formspree.io/lowlifetoronto@gmail.com" method="POST">
-                <div class="card-panel grey lighten-2">
+                <div class="card-panel grey lighten-3">
                 <h5 style="margin-bottom: 40px;">Leave us a message</h5>
                 <div class = "input-field">
-                    <input v-model= "name" type ="text" placeholder = "Name" id ="name" name ="name">
-                    <label for="name">Name</label>
+                    <input v-model= "name" type ="text" placeholder = "Name" id ="name" name ="name" required>
                 </div>
                 <div class = "input-field">
-                    <input v-model= "from" type ="text" placeholder = "Email" id ="email" name="_replyto">
-                    <label for="email">Email</label>
+                    <input v-model= "from" type ="text" placeholder = "Email" id ="email" name="_replyto" required>
                     </div>
                 <div class = "input-field">
-                    <input v-model= "subject" type ="text" placeholder = "Subject" id ="subject" name="_subject">
-                    <label for="subject">Subject</label>
+                    <input v-model= "subject" type ="text" placeholder = "Subject" id ="subject" name="_subject" required>
                 </div>
                 <div class = "input-field">
-                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Message" id ="message" name="message"></textarea>
-                    <label for="message">Message</label>
+                    <textarea v-model= "text" class = "materialize-textarea" placeholder="Message" id ="message" name="message" required></textarea>
                 </div>
-                <input class = "btn blue-grey darken-4" type="submit" value="Send">
+                <input class = "btn send" type="submit" value="Send">
 
                 </div>  
                 </form>  
@@ -44,6 +40,10 @@
 <style scoped>
 h5{
     font-family: 'Roboto Mono', sans-serif;
+}
+
+.send{
+    background-color:#10002E !important;
 }
   /* label color */
    .input-field label {

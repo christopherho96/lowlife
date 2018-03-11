@@ -4,19 +4,21 @@
             <div class = "col s12 m8 left">
                 <div class ="primary-overlay valign-wrapper">
                     <div class= "col s12 main-text center">
-                        <h1 class ="brand-text">LOWLIFE</h1>
-                        <div class = "notice-board">
-                            <h5 class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
-                            <p class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
-                            <article style="white-space: pre-wrap;" class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].message}}
-                            </article>
-                            <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'video'"  class = "video-container">
-                                <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-                            </div>
-                            <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'image'">
-                                <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            
-                            </div>
-                        </div>   
+                        <div class = "container">
+                        <p class ="brand-text">LOWLIFE</p>
+                            <div class = "notice-board">
+                                <h5 class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
+                                <p class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
+                                <article style="white-space: pre-wrap;" class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].message}}
+                                </article>
+                                <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'video'"  class = "video-container">
+                                    <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                                </div>
+                                <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'image'">
+                                    <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            
+                                </div>
+                            </div>   
+                        </div>
                         <!-- <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link> -->
                     </div>
                 </div>
@@ -110,11 +112,7 @@
 }
 
 .notice-board{
-    margin-left: 50px;
-    margin-right: 50px;
-    margin-bottom: 50px;
     padding: 30px 50px;
-    border-radius: 5px;
     background: rgba(255, 255, 255, 0.6);
 }
 .block .lowlifefont{
@@ -153,9 +151,6 @@
     position:relative;
 }
 
-.right-top{
-    height: 70vh;
-}
  
 .block1{
     background: url(../assets/dj.jpg);

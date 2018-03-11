@@ -11,6 +11,9 @@
         </div>
   <!-- Section: Videos and Podcasts -->
   <section class="section grey lighten-3">
+    <div class = "row center">
+        <router-link v-bind:to= "'/admin/AdminAddMedia'" class="btn-large">Add Media</router-link>
+    </div>
     <div class="row">
       <div class="container">
         <div class="col s12 m8 videos">
@@ -23,6 +26,9 @@
             <li class="collection-item" v-for="(media,index) in sortedVideos" :key="index" v-if="media.type == 'video'">
               <div v-if="media.type = 'video'" class = "video-container">
                 <iframe width="560" height="315" :src="media.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                  <button v-on:click="deleteItem(media['.key'])" class="btn-floating halfway-fab waves-effect waves-light red" style = "margin-bottom: 25px;">
+                    <i class="material-icons">delete</i>
+                  </button>
               </div>
             </li>
           </ul>
@@ -38,6 +44,9 @@
             <li class="collection-item" v-for="(media,index) in sortedPodcasts" :key="index" v-if="media.type == 'podcast'">
                 <div class = "video-container">
                   <iframe width="100%" height="300" scrolling="no" frameborder="no" :src="media.url"></iframe>
+                  <button v-on:click="deleteItem(media['.key'])" class="btn-floating halfway-fab waves-effect waves-light red" style = "margin-bottom: 25px;">
+                    <i class="material-icons">delete</i>
+                  </button>
                 </div>
             </li>
           </ul>
@@ -89,7 +98,7 @@ h5{
 }
 
 .showcase{
-  background: url(../assets/media2.jpg);
+  background: url(../../assets/media2.jpg);
   background-size: cover;
   background-position: center;
   min-height: 250px;
@@ -119,7 +128,7 @@ h5{
 </style>
 
 <script>
-import {mediaRef} from '../firebase';
+import {mediaRef} from '../../firebase';
 import firebase from 'firebase';
 import { getIdFromURL, getTimeFromURL } from 'vue-youtube-embed';
 export default {
@@ -127,6 +136,8 @@ export default {
   },
   data () {
     return {
+      podcasts: [],
+      videos: []
     }
   },
   
@@ -158,7 +169,26 @@ export default {
   methods: {
     getVideo(url) {
       return this.$youtube.getIdFromURL(url)
+    },
+
+    deleteItem(key){
+      swal({
+          title: "Are you sure?",
+          text: "This will remove the media item from the media page.",
+          icon: "warning",
+          buttons: true,
+          dangerMode: true,
+          closeOnClickOutside: false,
+          })
+          .then((willDelete) => {
+          if (willDelete) {
+              swal("Your image was successfully removed.", {
+              icon: "success",
+              });
+              mediaRef.child(key).remove();
+          }});
     }
   }
+  
 }
 </script>

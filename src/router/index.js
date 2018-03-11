@@ -26,6 +26,8 @@ import EditEvent from '@/components/admin/EditEvent'
 import EditMerchItem from '@/components/admin/EditMerchItem'
 import AdminMerch from '@/components/admin/AdminMerch'
 import AdminAddMerch from '@/components/admin/AdminAddMerch'
+import AdminMedia from '@/components/admin/AdminMedia'
+import AdminAddMedia from '@/components/admin/AdminAddMedia'
 
 Vue.use(Router)
 
@@ -136,6 +138,16 @@ const router = new Router({
     {
       path: '/admin/EditMerchItem/:id',
       component: EditMerchItem,
+      meta: { auth: true },
+    },
+    {
+      path: '/admin/AdminMedia',
+      component: AdminMedia,
+      meta: { auth: true },
+    },
+    {
+      path: '/admin/AdminAddMedia',
+      component: AdminAddMedia,
       meta: { auth: true },
     },
     
