@@ -4,7 +4,7 @@
             <nav>
                 <div class = "container">
                     <div class="nav-wrapper">
-                        <a href="" class="brand-logo">LOWLIFE</a>
+                        <router-link class="brand-logo" to="/admin/HomePage"><img src="../../assets/PNG/white/lowlife-white2.png"/></router-link>
                         <a @click="showNavigation = true" data-activates="mobile-nav" class="button-collapse">                                
                             <i class ="material-icons">menu</i>
                         </a>
@@ -45,31 +45,31 @@
                 <md-list-item>
                 <md-icon>home</md-icon>
                 <span class="md-list-item-text">
-                    <router-link to= "/admin/HomePage">Admin Home</router-link>
+                    <router-link class="link" to= "/admin/HomePage">Admin Home</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>event</md-icon>
-                <span class="md-list-item-text"><router-link to= "/admin/AdminExperiences">Experiences</router-link>
+                <span class="md-list-item-text"><router-link class="link" to= "/admin/AdminExperiences">Experiences</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>photo</md-icon>
-                <span class="md-list-item-text"><router-link to= "/admin/AdminGallery">Gallery</router-link>
+                <span class="md-list-item-text"><router-link class="link" to= "/admin/AdminGallery">Gallery</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>movie</md-icon>
-                <span class="md-list-item-text"><router-link to= "/admin/AdminMedia">Media</router-link>
+                <span class="md-list-item-text"><router-link class="link" to= "/admin/AdminMedia">Media</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>shop</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Media"><router-link to= "/admin/AdminMerch">Merchandise</router-link>
+                <span class="md-list-item-text"><router-link class="link" to= "/admin/AdminMerch">Merchandise</router-link>
                 </router-link>
                 </span>
                 </md-list-item>
@@ -115,15 +115,22 @@ export default {
 
 <style scoped>
 li{
-    font-family: 'Lato', sans-serif;
-    font-weight: 300;  
+    font-family: 'Knockout', sans-serif;  
 }
 
 .md-drawer {
     background-color:white;
 }
 
+.md-drawer .link{
+    color:#10002E !important;
+}
+
 nav{
     background-color:#10002E !important;
+}
+
+.brand-logo{
+    width: 125px;
 }
 </style>

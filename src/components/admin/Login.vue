@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col s12 m8 offset-m2 l6 offset-l3">
           <div class="card-panel login white-text center">
-            <img class = "brand-logo" src="../../assets/lowlife-02-white.png"/>
+            <img src="../../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img brand-logo">
             <form action="index.html">
               <div class="input-field">
                 <i class="material-icons prefix">email</i>
