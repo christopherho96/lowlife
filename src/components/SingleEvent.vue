@@ -26,7 +26,7 @@
 
 <style scoped>
 .event-title{
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Knockout';
 }
 .content{
     padding-bottom:50px;

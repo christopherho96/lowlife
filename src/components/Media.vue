@@ -4,7 +4,8 @@
             <div class = "primary-overlay">
                 <div class="row">
                     <div class="col s12 m10 offset-m1 center">
-                    <h3 class = "center"><span class="brand-text">LOWLIFE</span>Media</h3>
+                      <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
+                      <h4 class = "center">Media</h4>
                     </div>
                 </div>
             </div>
@@ -51,6 +52,15 @@
 
 <style scoped>
 
+h4{
+  margin-top: 0 !important;
+  font-family: 'Knockout';
+}
+
+.logo{
+  margin-top:50px;
+}
+
 .collection-header{
    background-color:#10002E !important;
 }
@@ -85,7 +95,7 @@ h3{
 }
 
 h5{
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Knockout';
 }
 
 .showcase{

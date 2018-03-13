@@ -39,4 +39,9 @@ export default {
 .row{
   margin-bottom: 0 !important;
 }
+
+@font-face {
+  font-family: "Knockout";
+  src: url('../static/Knockout.otf');
+}
 </style>

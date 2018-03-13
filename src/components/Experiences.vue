@@ -4,7 +4,8 @@
             <div class = "primary-overlay">
                 <div class="row">
                     <div class="col s12 m10 offset-m1 center">
-                    <h3 class = "center"><span class="brand-text">LOWLIFE</span>Experiences</h3>
+                    <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
+                    <h4 class = "center">Experiences</h4>
                     </div>
                 </div>
             </div>
@@ -42,7 +43,7 @@
 }
 
 .event-title{
-  font-family: 'Roboto Mono', sans-serif;
+  font-family: 'Knockout';
   font-size: 20px;
   margin-bottom: 5px !important;
 }
@@ -60,8 +61,13 @@
     font-size: 120px;
 }
 
-h3{
-  padding-top: 50px;
+h4{
+  margin-top: 0 !important;
+  font-family: 'Knockout';
+}
+
+.logo{
+  margin-top:50px;
 }
 
 .showcase{

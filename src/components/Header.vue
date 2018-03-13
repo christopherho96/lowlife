@@ -4,7 +4,7 @@
             <nav>
                 <div class = "container">
                     <div class="nav-wrapper">
-                        <a href="" class="brand-logo"><img src="../assets/lowlife-02-white.png"/></a>
+                        <a href="" class="brand-logo"><img src="../assets/PNG/white/lowlife-white2.png"/></a>
                         <a @click="showNavigation = true" data-activates="mobile-nav" class="button-collapse">                                
                             <i class ="material-icons">menu</i>
                             </a>
@@ -44,38 +44,38 @@
                 <md-list-item>
                 <md-icon>home</md-icon>
                 <span class="md-list-item-text">
-                    <router-link to= "/">Home</router-link>
+                    <router-link class = "link" to= "/">Home</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>event</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Experiences">Experiences</router-link>
+                <span class="md-list-item-text"><router-link class = "link" to= "/Experiences">Experiences</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>photo</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Gallery">Gallery</router-link>
+                <span class="md-list-item-text"><router-link class = "link" to= "/Gallery">Gallery</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>movie</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Media">Media</router-link>
+                <span class="md-list-item-text"><router-link class = "link" to= "/Media">Media</router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>shop</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Media"><router-link to= "/Merchandise">Merchandise</router-link>
+                <span class="md-list-item-text"><router-link class = "link" to= "/Merchandise">Merchandise</router-link>
                 </router-link>
                 </span>
                 </md-list-item>
 
                 <md-list-item>
                 <md-icon>mail</md-icon>
-                <span class="md-list-item-text"><router-link to= "/Media"><router-link to= "/Contact">Contact</router-link>
+                <span class="md-list-item-text"><router-link class = "link" to= "/Contact">Contact</router-link>
                 </router-link>
                 </span>
                 </md-list-item>
@@ -96,15 +96,19 @@
 
 <style scoped>
 li{
-    font-family: 'Roboto Mono', sans-serif;
+    font-family: 'Knockout';
     font-weight: 300;  
 }
 .brand-logo{
-    width: 75px;
+    width: 125px;
 }
 
 .md-drawer {
     background-color:white;
+}
+
+.md-drawer .link{
+    color:#10002E !important;
 }
 
 nav{

@@ -23,12 +23,16 @@
     </footer>
 </template>
 
-<style>
+<style scoped>
 footer{
     background-color:#10002E !important;
 }
 
 .social-icon{
     margin-left:20px;
+}
+
+a{
+    font-family: 'Knockout';
 }
 </style>

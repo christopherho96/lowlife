@@ -5,7 +5,7 @@
                 <div class ="primary-overlay valign-wrapper">
                     <div class= "col s12 main-text center">
                         <div class = "container">
-                        <p class ="brand-text">LOWLIFE</p>
+                        <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img">
                             <div class = "notice-board">
                                 <h5 class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
                                 <p class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
@@ -112,11 +112,12 @@
 }
 
 .notice-board{
+    margin-top: 20px;
     padding: 30px 50px;
     background: rgba(255, 255, 255, 0.6);
 }
 .block .lowlifefont{
-    font-family: 'Roboto Mono', sans-serif;
+    font-family: 'Knockout';
     font-weight:300;
     font-size: 30px;
 }
@@ -149,6 +150,10 @@
     height: 100vh;
     color: #fff;
     position:relative;
+}
+
+.left h5{
+        font-family: 'Knockout';
 }
 
  
