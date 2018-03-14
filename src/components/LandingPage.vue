@@ -1,15 +1,49 @@
 <template>
     <div>
-        <div class = "row">
-            <div class = "col s12 m8 left">
-                <div class ="primary-overlay valign-wrapper">
-                    <div class= "col s12 main-text center">
+            <div class = "left valign-wrapper">
+                <div class = "container">
+                <p class = "grey-text center date">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
+                <h2 class = "white-text center">{{homePageNotifs[homePageNotifs.length - 1].title}}</h2>
+                <!-- <article style="white-space: pre-wrap;" class = "white-text center">{{homePageNotifs[homePageNotifs.length - 1].message}}
+                </article> -->
+                <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'video'"  class = "video-container">
+                    <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+                <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'image'">
+                    <img :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" alt="" class="responsive-img">                            
+                </div>
+
+                <div class = "row center logo">
+                    <img src="../assets/PNG/white/lowlife-white-heart.png" alt="" class="responsive-img" width="50">
+                </div>
+
+                <div class = "row center icons">
+                    <a href="https://www.facebook.com/Lowlife-1011391372208170/" target = "_blank" class = "white-text social-icon">
+                    <i class = "fab fa-facebook fa-2x"></i>
+                    </a>
+
+                                    <a href="https://www.youtube.com/channel/UC0nghJHyf66VndaqSBflETg" target = "_blank" class = " white-text social-icon">
+                    <i class = "fab fa-youtube fa-2x"></i>
+                    </a>
+
+                    <a href="https://soundcloud.com/lowlife-media" target = "_blank" class = "white-text social-icon">
+                    <i class = "fab fa-soundcloud fa-2x"></i>
+                    </a>
+                    <a href="https://www.instagram.com/lw.lf/?hl=en" target = "_blank" class = "white-text social-icon">
+                    <i class = "fab fa-instagram fa-2x"></i>
+                    </a>
+                </div>
+
+                
+                
+                </div>
+                    <!-- <div class= "col s12 main-text center">
                         <div class = "container">
                         <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img">
-                            <div class = "notice-board">
-                                <h5 class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
-                                <p class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
-                                <article style="white-space: pre-wrap;" class = "black-text">{{homePageNotifs[homePageNotifs.length - 1].message}}
+                            <div>
+                                <h5 class = "white-text">{{homePageNotifs[homePageNotifs.length - 1].title}}</h5>
+                                <p class = "white-text">{{homePageNotifs[homePageNotifs.length - 1].date}}</p>
+                                <article style="white-space: pre-wrap;" class = "white-text">{{homePageNotifs[homePageNotifs.length - 1].message}}
                                 </article>
                                 <div v-if="homePageNotifs[homePageNotifs.length - 1].mediaType == 'video'"  class = "video-container">
                                     <iframe width="560" height="315" :src="homePageNotifs[homePageNotifs.length - 1].mediaURL" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
@@ -19,11 +53,10 @@
                                 </div>
                             </div>   
                         </div>
-                        <!-- <router-link v-bind:to= "'/About'" class="btn btn-large yellow darken-3 black-text">Learn More</router-link> -->
-                    </div>
-                </div>
+                    </div> -->
+
             </div>
-            <div class = "col s12 m4 right">
+            <!-- <div class = "col s12 m4 right">
                 <div class = "block block1">
                     <div class = "col s12 m6">
                         <router-link v-bind:to= "'/Experiences'" class ="white-text">
@@ -93,12 +126,31 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+            </div> -->
+
     </div>
 </template>
 
 <style scoped>
+
+.logo{
+    margin-top:75px;
+}
+
+.icons{
+    margin-top: 25px;
+    margin-bottom: 50px !important;
+}
+
+.social-icon{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.date{
+    font-family: "Source Code Pro";
+}
+
 .video-container {
     position: relative;
 }
@@ -107,8 +159,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: 100%;;
 }
 
 .notice-board{
@@ -144,16 +196,20 @@
 }
 
 .left{
-    background: url(../assets/hats.jpg);
+    /* background: url(../assets/hats.jpg); */
+    background-color: #110909;
     background-size:cover;
     background-position:center;
-    height: 100vh;
+    width: 100vw;
     color: #fff;
     position:relative;
+    padding-top:100px;
 }
 
-.left h5{
-        font-family: 'Knockout';
+.left h2{
+    font-family: 'Abel';
+    margin-top: 0 !important;
+    text-transform: uppercase;
 }
 
  
@@ -223,6 +279,12 @@
   .brand-text{
     font-size: 80px;
   }
+}
+
+@media(max-width: 855px){
+    .left{
+        height: 100vh !important;
+    }
 }
 
 .img-container { background-color: #000000; }

@@ -25,7 +25,7 @@
 
 <style scoped>
 footer{
-    background-color:#10002E !important;
+    background-color:#110909;
 }
 
 .social-icon{
@@ -33,6 +33,6 @@ footer{
 }
 
 a{
-    font-family: 'Knockout';
+    font-family: 'Abel';
 }
 </style>

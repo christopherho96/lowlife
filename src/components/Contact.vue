@@ -1,20 +1,24 @@
 <template>
 <!--Section : Signip -->
   <section class="section section-signup">
-      <div class ="container" style= "padding-top:25px; padding-bottom: 25px;">
+      <div class ="container" style= "padding-top:100px; padding-bottom: 25px;">
           <div class="row">
-              <div class="col s12 m6">
+              <div class="col s12">
                 <div class = "center">
-                    <img src="../assets/PNG/black/lowlife-black-heart.png" alt="" class="responsive-img logo" width="75">
+                    <img src="../assets/PNG/white/lowlife-white-heart.png" alt="" class="responsive-img logo" width="75">
                 </div>
+                <div class = "white-text">
                   <h5 style= "margin-bottom: 20px;">Showcase your passion</h5>
                   <p>Lowlife is proud to represent upcoming underground artists from the Toronto region. We provide branding and video advertisement documenting your steps to success.</p>
                   <h5 style= "margin-bottom: 20px;">Book events</h5>
                   <p>Plan your next big event with Lowlife. We cater to all spaces and provide top quality services including live music, performences from reputable artists and showcases for local artists and fashion brands.</p>
                   <h5 style= "margin-bottom: 20px;">We're here to push boundaries</h5>
                   <p>If you have an idea that you believe we can help make succesful, plesae do not hesitate to contact us. Lowlife is continously finding new ways to branch out.</p>
+                </div>
               </div>
-              <div class ="col s12 m6">
+            </div>
+            <div class = "row">
+              <div class ="col s12 s12">
                 <form action="https://formspree.io/lowlifetoronto@gmail.com" method="POST">
                 <div class="card-panel grey lighten-3">
                 <h5 style="margin-bottom: 40px;">Leave us a message</h5>
@@ -42,12 +46,16 @@
 
 <style scoped>
 
+.section{
+    background-color: #110909;
+}
+
 .logo{
     margin-top: 20px;
     margin-bottom: 20px;
 }
 h5{
-    font-family: 'Knockout', sans-serif;
+    font-family: 'Abel', sans-serif;
 }
 
 .send{

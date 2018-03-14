@@ -25,7 +25,7 @@
                                 <router-link to= "/Merchandise">Merchandise</router-link>
                             </li>
                             <li>
-                                <router-link to= "/Contact" class = "btn yellow darken-3 black-text">Contact</router-link>
+                                <router-link to= "/Contact">Contact</router-link>
                             </li>
                         </ul>
                         <!--Side Nav -->      
@@ -37,7 +37,9 @@
             <md-list>
                 <!--SPACER-->
                 <md-list-item>
-                <span class="md-list-item-text"></span>
+                <span class="md-list-item-text">
+                    <a v-on:click="showNavigation=false"><i class="fas fa-times fa-2x white-text exit"></i></a>
+                </span>
                 </md-list-item>
                 <!--SPACER-->
 
@@ -96,23 +98,44 @@
 
 <style scoped>
 li{
-    font-family: 'Knockout';
-    font-weight: 300;  
+    font-family: 'Source Code Pro';
+    font-weight: 300; 
 }
+
+li a{
+    text-decoration: none !important;
+    font-size: 12x;
+}
+
 .brand-logo{
     width: 125px;
 }
 
 .md-drawer {
-    background-color:white;
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    width: 100vh;
+    max-width: 100vh;
+    z-index: 1000;
 }
 
 .md-drawer .link{
-    color:#10002E !important;
+    color:white !important;
+}
+
+.md-list-item-content{
+}
+
+.md-list-item{
+    padding: 0 !important;
+}
+
+.md-icon{
+    color: white !important;
 }
 
 nav{
-    background-color:#10002E !important;
+    background-color: transparent;
 }
 
 </style>

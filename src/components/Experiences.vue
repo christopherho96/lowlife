@@ -1,22 +1,12 @@
 <template>
     <div>
-        <div class="showcase valign-wrapper">
-            <div class = "primary-overlay">
-                <div class="row">
-                    <div class="col s12 m10 offset-m1 center">
-                    <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
-                    <h4 class = "center">Experiences</h4>
-                    </div>
-                </div>
-            </div>
-        </div>
-            <div class = "events-list grey lighten-4">
+            <div class = "events-list">
                 <div class = "container">
                     <div class="row" v-for="(event,index) in sortedFromMostRecentPosts" :key="index">
                         <div class="col s12 m12">
                           <router-link v-bind:to= "'/event/' + event['.key']">
                             <div class="card blue-grey darken-4 event-card" v-bind:style="{ backgroundImage: 'url('+ event.images[0].image + ')' }">
-                              <div class = "primary-overlay">
+                              <div class = "dim">
                                   <div class="card-content white-text" style ="position:absolute; bottom:0;">
                                     <p class = "event-title">{{event.title}}</p>
                                     <p><i class="far fa-calendar" aria-hidden="true"></i> {{event.date}}</p>
@@ -43,17 +33,18 @@
 }
 
 .event-title{
-  font-family: 'Knockout';
+  font-family: 'Abel';
   font-size: 20px;
   margin-bottom: 5px !important;
 }
 
 .event-card :hover{
-  background: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0);
 }
 .events-list{
-    padding-top:50px;
+    padding-top:100px;
     padding-bottom:50px;
+    background-color: #110909;
 }
 .brand-text{
     font-family: 'Lato', sans-serif;
@@ -81,6 +72,16 @@ h4{
 
 .primary-overlay{
   background: rgba(0, 0, 0, 0.6);
+  position:absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.dim{
+    background: rgba(0, 0, 0, 0.2);
   position:absolute;
   top: 0;
   left: 0;

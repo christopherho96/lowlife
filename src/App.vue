@@ -1,9 +1,11 @@
 <template>
   <div id="app">
     <app-admin-header v-if="this.$store.getters.checkLogInState && this.$router.history.current.path != '/'"></app-admin-header>
-    <app-header v-if="!this.$store.getters.checkLogInState && this.$router.history.current.path != '/' "></app-header>
+    <div class = "header">
+      <app-header v-if="!this.$store.getters.checkLogInState"></app-header>
+    </div>
     <router-view/>
-    <app-footer v-if="this.$router.history.current.path != '/'"></app-footer>
+    <app-footer v-if="this.$router.history.current.path != '/'" ></app-footer>
   </div>
 </template>
 
@@ -43,5 +45,10 @@ export default {
 @font-face {
   font-family: "Knockout";
   src: url('../static/Knockout.otf');
+}
+
+.header{
+  position:absolute;
+  z-index: 1000;
 }
 </style>

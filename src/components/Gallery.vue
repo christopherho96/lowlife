@@ -1,19 +1,14 @@
 <template>
   <div>
       <div class="showcase valign-wrapper">
+        <p class= "center title" style="width: 100%">Gallery</p>
         <div class = "primary-overlay">
-          <div class="row">
-            <div class="col s12 m10 offset-m1 center">
-              <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
-              <h4 class = "center">Gallery</h4>
-            </div>
-          </div>
         </div>
       </div>
-      <div class = "blogs-list grey lighten-4">
+      <div class = "blogs-list">
         <div class = "container">
-          <div class="row" v-for="i in Math.ceil(gallery.length / 3)" :key="i">
-            <div class = "col s12 m4" v-for="(image,index) in sortedFromMostRecentPosts.slice((i - 1) * 3, i * 3)" :key="index">
+          <div class="row" v-for="i in Math.ceil(gallery.length / 4)" :key="i">
+            <div class = "col s12 m3" v-for="(image,index) in sortedFromMostRecentPosts.slice((i - 1) * 4, i * 4)" :key="index">
                 <div class="card blue-grey darken-4">
                   <div class="card-image">
                     <img v-img:group :src="image.url"> 
@@ -27,9 +22,11 @@
 </template>
 
 <style scoped>
-h4{
-  margin-top: 0 !important;
-  font-family: 'Knockout';
+.title{
+  font-family: 'Abel';
+  font-size: 96px;
+  z-index: 999;
+  text-transform: uppercase;
 }
 
 .logo{
@@ -42,6 +39,7 @@ h4{
 .blogs-list{
   padding-top: 30px;
   padding-bottom:30px;
+  background-color: #110909
 }
 .brand-text{
     font-family: 'Lato', sans-serif;
@@ -54,16 +52,16 @@ h3{
 }
 
 .showcase{
-  background: url(../assets/blog.jpg);
+  background: url(../assets/gallery.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 250px;
+  height: 40vh;
   color: #fff;
   position:relative;
 }
 
 .primary-overlay{
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.3);
   position:absolute;
   top: 0;
   left: 0;

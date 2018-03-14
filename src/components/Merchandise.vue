@@ -1,28 +1,23 @@
 <template>
   <div>
       <div class="showcase valign-wrapper">
+        <p class= "title center" style="width: 100%">Merch</p>
         <div class = "primary-overlay">
-          <div class="row">
-            <div class="col s12 m10 offset-m1 center">
-              <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
-              <h4 class = "center">Merchandise</h4>
-            </div>
-          </div>
         </div>
       </div>
-      <div class = "blogs-list grey lighten-4">
+      <div class = "merch-list">
         <div class = "container">
-          <h4 class = "center">Visual Catalog Only</h4>
-          <p class = "center">Click here to visit official Lowlife store</p>
+          <!-- <h4 class = "center">Visual Catalog Only</h4>
+          <p class = "center">Click here to visit official Lowlife store</p> -->
           <div class="row" v-for="i in Math.ceil(merch.length / 3)" :key="i">
             <div class = "col s12 m4" v-for="(item,index) in sortedFromMostRecentPosts.slice((i - 1) * 3, i * 3)" :key="index">
-                <div class="card">
+                <div class = "item">
                     <div class="card-image">
                         <img v-img:group :src="item.image"> 
                     </div>
-                    <div class="card-content">
+                    <div>
                         <p class = "blog-title center white-text">{{item.name}}</p>
-                        <p class = "center white-text">{{item.price}}</p>
+                        <p class = "price center white-text">{{item.price}}</p>
                     </div>
                 </div>
             </div>
@@ -34,9 +29,11 @@
 
 <style scoped>
 
-h4{
-  margin-top: 0 !important;
-  font-family: 'Knockout';
+.title{
+  font-family: 'Abel';
+  font-size: 96px;
+  z-index: 999;
+  text-transform: uppercase;
 }
 
 .logo{
@@ -46,11 +43,17 @@ h4{
 .blog-title{
   font-family: 'Knockout', sans-serif;
   font-size: 18px;
-  padding-bottom: 10px;
+  margin-bottom: 0 !important;
 }
-.blogs-list{
+
+.price{
+  margin:0 !important;
+}
+
+.merch-list{
   padding-top: 30px;
   padding-bottom:30px;
+  background-color: #110909;
 }
 .brand-text{
     font-family: 'Lato', sans-serif;
@@ -63,16 +66,16 @@ h3{
 }
 
 .showcase{
-  background: url(../assets/merch.jpg);
+  background: url(../assets/merch2.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 250px;
+  height: 40vh;
   color: #fff;
   position:relative;
 }
 
 .primary-overlay{
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.2);
   position:absolute;
   top: 0;
   left: 0;
@@ -81,8 +84,9 @@ h3{
   overflow: hidden;
 }
 
-.card{
-  background-color:#10002E !important;
+.item{
+  background-color: transparent;
+  margin-top: 25px;
 }
 
 @media(max-width: 700px){

@@ -1,27 +1,22 @@
 <template>
     <div>
-        <div class="showcase valign-wrapper">
-            <div class = "primary-overlay">
-                <div class="row">
-                    <div class="col s12 m10 offset-m1 center">
-                      <img src="../assets/PNG/white/lowlife-white-word.png" alt="" class="responsive-img logo">
-                      <h4 class = "center">Media</h4>
-                    </div>
-                </div>
-            </div>
+      <div class="showcase valign-wrapper">
+        <p class= "title center" style="width: 100%">Media</p>
+        <div class = "primary-overlay">
         </div>
+      </div>
   <!-- Section: Videos and Podcasts -->
-  <section class="section grey lighten-3">
+  <section class="section">
     <div class="row">
-      <div class="container">
+      <div >
         <div class="col s12 m8 videos">
           <ul class="collection with-header">
-            <li class="collection-header white-text">
+            <li class=" white-text">
               <h5>Latest Episodes</h5>
               <p>Check out the official Lowlife YouTube channel</p>
               <a href="https://www.youtube.com/channel/UC0nghJHyf66VndaqSBflETg" target = "_blank"  class="btn btn-primary red darken-3 button"><i class="fab fa-youtube"></i> Youtube</a>
             </li>
-            <li class="collection-item" v-for="(media,index) in sortedVideos" :key="index" v-if="media.type == 'video'">
+            <li class="" v-for="(media,index) in sortedVideos" :key="index" v-if="media.type == 'video'">
               <div v-if="media.type = 'video'" class = "video-container">
                 <iframe width="560" height="315" :src="media.url" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
               </div>
@@ -31,12 +26,12 @@
         <div class="col s12 m4">
           <!-- Podcasts -->
           <ul class="collection with-header">
-            <li class="collection-header white-text">
+            <li class=" white-text">
               <h5>Podcasts</h5>
               <p>Official Lowlife SoundCloud Channel</p>
               <a href= "https://soundcloud.com/lowlife-media" target = "_blank"  class="btn btn-primary orange darken-3 button"><i class="fab fa-soundcloud"></i> SoundCloud</a>
             </li>
-            <li class="collection-item" v-for="(media,index) in sortedPodcasts" :key="index" v-if="media.type == 'podcast'">
+            <li class="" v-for="(media,index) in sortedPodcasts" :key="index" v-if="media.type == 'podcast'">
                 <div class = "video-container">
                   <iframe width="100%" height="300" scrolling="no" frameborder="no" :src="media.url"></iframe>
                 </div>
@@ -52,21 +47,31 @@
 
 <style scoped>
 
-h4{
-  margin-top: 0 !important;
-  font-family: 'Knockout';
+.title{
+  font-family: 'Abel';
+  font-size: 96px;
+  z-index: 999;
+  text-transform: uppercase;
 }
 
 .logo{
   margin-top:50px;
 }
 
-.collection-header{
-   background-color:#10002E !important;
+.collection{
+  border: none;
 }
+
+.collection-header{
+  background-color: transparent !important;
+  border:none !important;
+}
+
 
 .video-container {
     position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 .video-container iframe,
 .video-container object {
@@ -95,20 +100,24 @@ h3{
 }
 
 h5{
-  font-family: 'Knockout';
+  font-family: 'Abel';
+}
+
+.section{
+  background-color: #110909;
 }
 
 .showcase{
-  background: url(../assets/media2.jpg);
+  background: url(../assets/media3.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 250px;
+  height: 40vh;
   color: #fff;
   position:relative;
 }
 
 .primary-overlay{
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.3);
   position:absolute;
   top: 0;
   left: 0;
